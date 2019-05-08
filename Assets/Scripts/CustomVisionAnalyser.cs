@@ -108,7 +108,8 @@ public class CustomVisionAnalyser : MonoBehaviour {
             var modelFile = await
                 StorageFile.GetFileFromApplicationUriAsync(
                     new Uri("ms-appx:///Assets/LearningModel.onnx"));
-            _objectDetection = new ObjectDetection(new List<string>(new[] { "AngelPie", "ChocoPie" }), 20, .3f, .45f);
+            //学習させた内容に合わせてタグは適宜変更する
+            _objectDetection = new ObjectDetection(new List<string>(new[] { "curry", "gyoza","meat","pizza","sushi" }), 20, .3f, .45f);
             await _objectDetection.Init(modelFile);
 
             IsReady = true;
